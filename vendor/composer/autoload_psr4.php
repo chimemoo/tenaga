@@ -7,8 +7,10 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
+    'Tenaga\\Handlers\\' => array($baseDir . '/app/Handlers'),
     'Tenaga\\' => array($baseDir . '/core'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Http\\' => array($vendorDir . '/patricklouys/http/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
+    'Auryn\\' => array($vendorDir . '/rdlowrey/auryn/lib'),
 );

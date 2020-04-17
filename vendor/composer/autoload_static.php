@@ -17,6 +17,7 @@ class ComposerStaticInit34dcd73c6e1369acc7634f3784961012
         ),
         'T' => 
         array (
+            'Tenaga\\Handlers\\' => 16,
             'Tenaga\\' => 7,
         ),
         'P' => 
@@ -31,12 +32,20 @@ class ComposerStaticInit34dcd73c6e1369acc7634f3784961012
         array (
             'FastRoute\\' => 10,
         ),
+        'A' => 
+        array (
+            'Auryn\\' => 6,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
+        ),
+        'Tenaga\\Handlers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/Handlers',
         ),
         'Tenaga\\' => 
         array (
@@ -53,6 +62,10 @@ class ComposerStaticInit34dcd73c6e1369acc7634f3784961012
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Auryn\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rdlowrey/auryn/lib',
         ),
     );
 

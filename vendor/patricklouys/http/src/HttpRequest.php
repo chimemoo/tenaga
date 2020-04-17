@@ -188,7 +188,7 @@ class HttpRequest implements Request
      */
     public function getPath()
     {
-        return strtok($this->getServerVariable('REQUEST_URI'), '?');
+        return strtok($this->getServerVariable('PATH_INFO'), '?');
     }
 
     /**
