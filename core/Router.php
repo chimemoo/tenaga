@@ -2,13 +2,63 @@
 
 class Router {
 
+    /**
+    *
+    * Register Route List
+    * @var array
+    *
+    */
     public $routeList;
+
+    /**
+    *
+    * Register HTTP Method
+    * @var String
+    *
+    */
     public $method;
+
+    /**
+    *
+    * Register URL Path
+    * @var String
+    *
+    */
     public $path;
+
+    /**
+    *
+    * Register Handler of Action
+    * @var String
+    *
+    */
     public $handler;
+
+    /**
+    *
+    * Register request variable for inject Http\HttpRequest
+    * @var Object
+    *
+    */
     public $request;
+
+    /**
+    *
+    * Register response variable for inject Http\HttpResponse
+    * @var Object
+    *
+    */
     public $response;
 
+    /**
+    *
+    * Register route list from app/Router
+    * Register http method and path target
+    * Register injector
+    * @param String $method
+    * @param String $path
+    *
+    */
     public function __construct($method,$path){
         $this->routeList[] = require_once ROOT . DS . 'app' . DS . 'Routes' . DS . 'Web.php';
         $this->routeList[] = require_once ROOT . DS . 'app' . DS . 'Routes' . DS . 'Api.php';
@@ -19,6 +69,12 @@ class Router {
         $this->response = $this->injector->make('Http\HttpResponse');   
     }
 
+    /**
+    *
+    * Make the Route
+    * @param Object $response
+    *
+    */
     public function route($response){
         $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
             $routes = $this->routeList;
@@ -49,6 +105,14 @@ class Router {
         }
     }
 
+
+    /**
+    *
+    * Checking '@' is available in Handler, if not add 'index' for default handler
+    * @param String $handler
+    * @return array
+    * 
+    */
     public function checkHandler($handler){
         if(strpos($handler, '@')){
             $this->handler = explode("@", $handler);
