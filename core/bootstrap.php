@@ -15,12 +15,16 @@ use Tenaga\Router;
 */
 require_once(ROOT . DS . 'vendor' . DS . 'autoload.php');
 
+
+$dotenv = Dotenv\Dotenv::createImmutable(ROOT . DS);
+$dotenv->load();
+
 /**
 * 
 * Setting the Environtment Type
 *
 */
-$environment = 'development';
+$environment = env('ENVIRONTMENT');
 
 /**
 *

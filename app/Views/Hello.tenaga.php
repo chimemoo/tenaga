@@ -1,1 +1,4 @@
-Hello {{ name }}
+Hello
+{% for u in user %}
+    {{ u.name }}
+{% endfor %}

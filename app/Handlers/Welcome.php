@@ -2,6 +2,7 @@
 namespace Tenaga\Handlers;
 
 use Tenaga\Handler;
+use Tenaga\Models\WelcomeModel;
 
 class Welcome extends Handler {
     
@@ -12,9 +13,11 @@ class Welcome extends Handler {
     public function index(){
         $data = [
             'name' => $this->request->getParameter('name', 'stranger'),
+            'user' => WelcomeModel::all(),
+            'haha' => $this->request->get
         ];
-        $this->view->template('Hello');
-        $this->view->renderTemplate($data);
+        return $this->view->render('Hello',$data);
+        // $template->render($data);
     }
 
 }

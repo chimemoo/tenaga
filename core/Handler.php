@@ -1,5 +1,6 @@
 <?php namespace Tenaga;
 
+use Tenaga\Model;
 use Tenaga\Router;
 
 class Handler {
@@ -30,12 +31,21 @@ class Handler {
 
     /**
     *
+    * Register Model
+    * @var Object
+    * 
+    */
+    public $model;
+
+    /**
+    *
     * Initialize
     * 
     */
     public function __construct(){
         $this->__setHttp();
         $this->__setViewEngine();
+        $this->__setModel();
     }
 
     /**
@@ -59,6 +69,12 @@ class Handler {
         $router = new Router;
         $this->request = $router->getHttpRequest();
         $this->response = $router->getHttpResponse();
+    }
+
+    private function __setModel(){
+        $model = new Model;
+        $this->capsule = $model->connect();
+        return $this->capsule;
     }
 
 

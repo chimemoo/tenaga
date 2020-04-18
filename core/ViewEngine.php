@@ -37,7 +37,7 @@ class ViewEngine
     *
     */
     public function template($template){
-        $this->template = $this->engine->load($template.'.tenaga.php');
+        return $this->template = $this->engine->load($template.'.tenaga.php');
     }
 
     /**
