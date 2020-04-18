@@ -1,5 +1,8 @@
 <?php namespace Tenaga;
 
+use Http\HttpRequest;
+use Http\HttpResponse;
+
 class Router {
 
     /**
@@ -36,7 +39,7 @@ class Router {
 
     /**
     *
-    * Register request variable for inject Http\HttpRequest
+    * Register request variable for Http\HttpRequest
     * @var Object
     *
     */
@@ -44,7 +47,7 @@ class Router {
 
     /**
     *
-    * Register response variable for inject Http\HttpResponse
+    * Register response variable for Http\HttpResponse
     * @var Object
     *
     */
@@ -53,29 +56,31 @@ class Router {
     /**
     *
     * Register route list from app/Router
-    * Register http method and path target
     * Register injector
-    * @param String $method
-    * @param String $path
+    * Register request & response class
+    * Register request method and request
     *
     */
-    public function __construct($method,$path){
+    public function __construct(){
         $this->routeList[] = require_once ROOT . DS . 'app' . DS . 'Routes' . DS . 'Web.php';
         $this->routeList[] = require_once ROOT . DS . 'app' . DS . 'Routes' . DS . 'Api.php';
-        $this->method = $method;
-        $this->path = $path;
+
         $this->injector = require_once ROOT . DS . 'core' . DS . 'Injector.php';
-        $this->request = $this->injector->make('Http\HttpRequest');
-        $this->response = $this->injector->make('Http\HttpResponse');   
+
+        $this->request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER, file_get_contents('php://input'));
+        $this->response = new HttpResponse;
+
+        $this->method = $this->request->getMethod();
+        $this->path = $this->request->getPath(); 
     }
 
     /**
     *
     * Make the Route
-    * @param Object $response
+    * @return Void
     *
     */
-    public function route($response){
+    public function route(){
         $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
             $routes = $this->routeList;
             foreach ($routes[0] as $route) {
@@ -86,21 +91,22 @@ class Router {
         $routeInfo = $dispatcher->dispatch($this->method, $this->path);
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
-                $response->setContent('404 - Page not found');
-                $response->setStatusCode(404);
-                echo $response->getContent();
+                $this->response->setContent('404 - Page not found');
+                $this->response->setStatusCode(404);
+                echo $this->response->getContent();
                 break;
             case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-                $response->setContent('405 - Method not allowed');
-                $response->setStatusCode(405);
-                echo $response;
+                $this->response->setContent('405 - Method not allowed');
+                $this->response->setStatusCode(405);
+                
+                echo $rthis->esponse;
                 break;
             case \FastRoute\Dispatcher::FOUND:
                 $handler = $routeInfo[1];
                 $vars = $routeInfo[2];
                 list($className,$method)= $this->checkHandler($handler);
                 $class = $this->injector->make($className);
-                $class->$method($vars);
+                $class->$method($vars); 
                 break;
         }
     }
@@ -122,6 +128,24 @@ class Router {
             $this->handler = [$handler,'index'];
             return $this->handler;
         }
+    }
+
+    /**
+    *
+    * Register $request for access from another class
+    * @return object $request
+    */
+    public function getHttpRequest(){
+        return $this->request;
+    }
+
+    /**
+    *
+    * Register $response for access from another class
+    * @return object $response
+    */
+    public function getHttpResponse(){
+        return $this->response;
     }
 
 }

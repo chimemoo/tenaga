@@ -5,8 +5,6 @@
 * Importing need
 *
 */
-use Http\HttpRequest;
-use Http\HttpResponse;
 use Http\CookieBuilder;
 use Tenaga\Router;
 
@@ -41,17 +39,9 @@ $whoops->register();
 
 /**
 *
-* Initialize the request & response
-*
-*/
-$request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER, file_get_contents('php://input'));
-$response = new HttpResponse;
-
-/**
-*
 * Register the request & response
 *
 */
-$router = new Router($request->getMethod(), $request->getPath());
-$router->route($response);
+$router = new Router;
+$router->route();
 
