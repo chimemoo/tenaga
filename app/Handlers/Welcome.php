@@ -5,16 +5,16 @@ use Tenaga\Handler;
 use Tenaga\Models\WelcomeModel;
 
 class Welcome extends Handler {
-    
+
     public function __construct(){
         parent::__construct();
     }
 
     public function index(){
+        $data = $this->cookie->build('aaaa','aaaa');
         $data = [
             'name' => $this->request->getParameter('name', 'stranger'),
-            'user' => WelcomeModel::all(),
-            'haha' => $this->request->get
+            'user' => WelcomeModel::all()
         ];
         return $this->view->render('Hello',$data);
         // $template->render($data);
