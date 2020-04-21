@@ -31,6 +31,14 @@ class Handler {
 
     /**
     *
+    * Register Cookie
+    * @var Object
+    * 
+    */
+    public $cookie;
+
+    /**
+    *
     * Register Model
     * @var Object
     * 
@@ -61,7 +69,7 @@ class Handler {
 
     /**
     *
-    * Initialize HTTP Request & Response
+    * Initialize HTTP Request|Response|Cookie
     * @return Void
     * 
     */
@@ -69,6 +77,7 @@ class Handler {
         $router = new Router;
         $this->request = $router->getHttpRequest();
         $this->response = $router->getHttpResponse();
+        $this->cookie = $router->getCookieBuilder();
     }
 
     private function __setModel(){

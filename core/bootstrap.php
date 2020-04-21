@@ -5,7 +5,6 @@
 * Importing need
 *
 */
-use Http\CookieBuilder;
 use Tenaga\Router;
 
 /**
@@ -20,7 +19,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(ROOT . DS);
 $dotenv->load();
 
 /**
-* 
+*
 * Setting the Environtment Type
 *
 */
@@ -48,4 +47,3 @@ $whoops->register();
 */
 $router = new Router;
 $router->route();
-

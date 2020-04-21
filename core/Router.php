@@ -2,6 +2,7 @@
 
 use Http\HttpRequest;
 use Http\HttpResponse;
+use Http\CookieBuilder;
 
 class Router {
 
@@ -55,6 +56,14 @@ class Router {
 
     /**
     *
+    * Register cookie variable for Http\CookieBuilder
+    * @var Object
+    *
+    */
+    public $cookie;
+
+    /**
+    *
     * Register route list from app/Router
     * Register injector
     * Register request & response class
@@ -67,6 +76,8 @@ class Router {
 
         $this->injector = require_once ROOT . DS . 'core' . DS . 'Injector.php';
 
+        $this->cookie = new CookieBuilder;
+        $this->cookie->setDefaultSecure(false);
         $this->request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER, file_get_contents('php://input'));
         $this->response = new HttpResponse;
 
@@ -91,14 +102,14 @@ class Router {
         $routeInfo = $dispatcher->dispatch($this->method, $this->path);
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
-                $this->response->setContent('404 - Page not found');
+                $html = require ROOT . DS . 'app' . DS . 'Views' . DS . 'Tenaga' . DS . '404.php';
+                $this->response->setContent($html);
                 $this->response->setStatusCode(404);
                 echo $this->response->getContent();
                 break;
             case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
                 $this->response->setContent('405 - Method not allowed');
                 $this->response->setStatusCode(405);
-                
                 echo $rthis->esponse;
                 break;
             case \FastRoute\Dispatcher::FOUND:
@@ -147,5 +158,10 @@ class Router {
     public function getHttpResponse(){
         return $this->response;
     }
+
+    public function getCookieBuilder(){
+        return $this->cookie;
+    }
+
 
 }
