@@ -13,12 +13,12 @@
     "require": {
         "php": ">=7.0.0",
         "filp/whoops": "^2.7",
-        "patricklouys/http": "^1.4",
         "nikic/fast-route": "^1.3",
         "rdlowrey/auryn": "^1.4",
         "twig/twig": "^3.0",
         "illuminate/database": "^7.6",
-        "vlucas/phpdotenv": "^4.1"
+        "vlucas/phpdotenv": "^4.1",
+        "tenaga/http": "dev-master"
     },
     "autoload": {
         "psr-4": {

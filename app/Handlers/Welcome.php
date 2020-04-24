@@ -13,7 +13,7 @@ class Welcome extends Handler {
     public function index(){
         $data = $this->cookie->build('aaaa','aaaa');
         $data = [
-            'name' => $this->request->getParameter('name', 'stranger'),
+            'name' => $this->request->get('name'),
             'user' => WelcomeModel::all()
         ];
         return $this->view->render('Hello',$data);

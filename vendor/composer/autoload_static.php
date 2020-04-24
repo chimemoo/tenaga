@@ -28,6 +28,7 @@ class ComposerStaticInit34dcd73c6e1369acc7634f3784961012
         array (
             'Twig\\' => 5,
             'Tenaga\\Models\\' => 14,
+            'Tenaga\\Http\\' => 12,
             'Tenaga\\Handlers\\' => 16,
             'Tenaga\\' => 7,
         ),
@@ -54,10 +55,6 @@ class ComposerStaticInit34dcd73c6e1369acc7634f3784961012
             'Illuminate\\Database\\' => 20,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
-        ),
-        'H' => 
-        array (
-            'Http\\' => 5,
         ),
         'F' => 
         array (
@@ -98,6 +95,10 @@ class ComposerStaticInit34dcd73c6e1369acc7634f3784961012
         'Tenaga\\Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/Models',
+        ),
+        'Tenaga\\Http\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tenaga/http/src',
         ),
         'Tenaga\\Handlers\\' => 
         array (
@@ -166,10 +167,6 @@ class ComposerStaticInit34dcd73c6e1369acc7634f3784961012
         'Illuminate\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
-        ),
-        'Http\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/patricklouys/http/src',
         ),
         'FastRoute\\' => 
         array (

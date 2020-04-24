@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc1a3f1ae157af567f57d6fa38edea7d",
+    "content-hash": "195cd17ccb71180d0ad7c13b2eb76196",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -136,16 +136,16 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v7.6.2",
+            "version": "v7.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "10c5802e360595f5f2a8b6afa176b9542851e580"
+                "reference": "aa8dfe90a3eb31dc760adc911647be5d2e129c8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/10c5802e360595f5f2a8b6afa176b9542851e580",
-                "reference": "10c5802e360595f5f2a8b6afa176b9542851e580",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/aa8dfe90a3eb31dc760adc911647be5d2e129c8a",
+                "reference": "aa8dfe90a3eb31dc760adc911647be5d2e129c8a",
                 "shasum": ""
             },
             "require": {
@@ -176,11 +176,11 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "https://laravel.com",
-            "time": "2020-04-06T13:33:36+00:00"
+            "time": "2020-04-20T14:17:11+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v7.6.2",
+            "version": "v7.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -224,16 +224,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v7.6.2",
+            "version": "v7.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "2bfb896f341cb87bf417e1fb4cfdf0c2d1e36e1e"
+                "reference": "09f313bf5273cb2770b6863600c7f66c56a15b19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/2bfb896f341cb87bf417e1fb4cfdf0c2d1e36e1e",
-                "reference": "2bfb896f341cb87bf417e1fb4cfdf0c2d1e36e1e",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/09f313bf5273cb2770b6863600c7f66c56a15b19",
+                "reference": "09f313bf5273cb2770b6863600c7f66c56a15b19",
                 "shasum": ""
             },
             "require": {
@@ -282,20 +282,20 @@
                 "orm",
                 "sql"
             ],
-            "time": "2020-04-14T14:11:33+00:00"
+            "time": "2020-04-21T18:52:32+00:00"
         },
         {
             "name": "illuminate/support",
-            "version": "v7.6.2",
+            "version": "v7.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "b6f64a42377f86b293960e0b7f6920ae59e578d2"
+                "reference": "7143690b5b718a4a89f8a1ecda79833e75dd138c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/b6f64a42377f86b293960e0b7f6920ae59e578d2",
-                "reference": "b6f64a42377f86b293960e0b7f6920ae59e578d2",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/7143690b5b718a4a89f8a1ecda79833e75dd138c",
+                "reference": "7143690b5b718a4a89f8a1ecda79833e75dd138c",
                 "shasum": ""
             },
             "require": {
@@ -344,7 +344,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2020-04-15T19:48:40+00:00"
+            "time": "2020-04-21T15:58:25+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -462,51 +462,6 @@
                 "routing"
             ],
             "time": "2018-02-13T20:26:39+00:00"
-        },
-        {
-            "name": "patricklouys/http",
-            "version": "v1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PatrickLouys/http.git",
-                "reference": "94920a93515081fb446bb27529f9aea6df159004"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/PatrickLouys/http/zipball/94920a93515081fb446bb27529f9aea6df159004",
-                "reference": "94920a93515081fb446bb27529f9aea6df159004",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.0.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Http\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Patrick Louys",
-                    "email": "patrick@louys.ch",
-                    "role": "Creator / Main Developer"
-                }
-            ],
-            "description": "HTTP Component",
-            "keywords": [
-                "http",
-                "request",
-                "response"
-            ],
-            "time": "2016-08-18T15:47:28+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -1212,6 +1167,39 @@
             "time": "2019-11-18T17:27:11+00:00"
         },
         {
+            "name": "tenaga/http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chimemoo/TenagaHttp.git",
+                "reference": "627c074f14ba3ea27994613f8e2c2403cdeb68b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chimemoo/TenagaHttp/zipball/627c074f14ba3ea27994613f8e2c2403cdeb68b5",
+                "reference": "627c074f14ba3ea27994613f8e2c2403cdeb68b5",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tenaga\\Http\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chimemoo",
+                    "email": "christ.16062@student.unsika.ac.id"
+                }
+            ],
+            "description": "Fast & Simple HTTP Component",
+            "time": "2020-04-23T06:46:46+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v3.0.3",
             "source": {
@@ -1390,7 +1378,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "tenaga/http": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

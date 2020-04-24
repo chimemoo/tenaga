@@ -1,7 +1,7 @@
 <?php namespace Tenaga;
 
-use Http\HttpRequest;
-use Http\HttpResponse;
+use Tenaga\Http\Request;
+use Tenaga\Http\Response;
 use Http\CookieBuilder;
 
 class Router {
@@ -78,11 +78,12 @@ class Router {
 
         $this->cookie = new CookieBuilder;
         $this->cookie->setDefaultSecure(false);
-        $this->request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER, file_get_contents('php://input'));
-        $this->response = new HttpResponse;
+        $this->request = new Request();
+        $this->request->set();
+        $this->response = new Response;
 
-        $this->method = $this->request->getMethod();
-        $this->path = $this->request->getPath(); 
+        $this->method = $this->request->method();
+        $this->path = $this->request->path();
     }
 
     /**
@@ -98,7 +99,7 @@ class Router {
                 $r->addRoute($route[0], $route[1], $route[2]);
             }
         });
-        
+
         $routeInfo = $dispatcher->dispatch($this->method, $this->path);
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
@@ -117,7 +118,7 @@ class Router {
                 $vars = $routeInfo[2];
                 list($className,$method)= $this->checkHandler($handler);
                 $class = $this->injector->make($className);
-                $class->$method($vars); 
+                $class->$method($vars);
                 break;
         }
     }
@@ -128,7 +129,7 @@ class Router {
     * Checking '@' is available in Handler, if not add 'index' for default handler
     * @param String $handler
     * @return array
-    * 
+    *
     */
     public function checkHandler($handler){
         if(strpos($handler, '@')){
