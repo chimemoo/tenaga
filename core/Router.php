@@ -2,7 +2,7 @@
 
 use Tenaga\Http\Request;
 use Tenaga\Http\Response;
-use Http\CookieBuilder;
+use Tenaga\Http\Cookie;
 
 class Router {
 
@@ -76,7 +76,7 @@ class Router {
 
         $this->injector = require_once ROOT . DS . 'core' . DS . 'Injector.php';
 
-        $this->cookie = new CookieBuilder;
+        $this->cookie = new Cookie;
         $this->cookie->setDefaultSecure(false);
         $this->request = new Request();
         $this->request->set();
