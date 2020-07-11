@@ -3,6 +3,7 @@
 use Tenaga\Http\Request;
 use Tenaga\Http\Response;
 use Tenaga\Http\Cookie;
+use Tenaga\Http\Header;
 
 class Router {
 
@@ -40,7 +41,7 @@ class Router {
 
     /**
     *
-    * Register request variable for Http\HttpRequest
+    * Register request variable for Tenaga\Http\Request
     * @var Object
     *
     */
@@ -48,7 +49,7 @@ class Router {
 
     /**
     *
-    * Register response variable for Http\HttpResponse
+    * Register response variable for Tenaga\Http\Response
     * @var Object
     *
     */
@@ -56,11 +57,19 @@ class Router {
 
     /**
     *
-    * Register cookie variable for Http\CookieBuilder
+    * Register cookie variable for Tenaga\Http\Cookie
     * @var Object
     *
     */
     public $cookie;
+
+    /**
+    *
+    * Register cookie variable for Tenaga\Http\Header
+    * @var Object
+    *
+    */
+    public $header;
 
     /**
     *
@@ -77,10 +86,11 @@ class Router {
         $this->injector = require_once ROOT . DS . 'core' . DS . 'Injector.php';
 
         $this->cookie = new Cookie;
-        $this->cookie->setDefaultSecure(false);
+        $this->cookie->setSecure(false);
         $this->request = new Request();
         $this->request->set();
         $this->response = new Response;
+        $this->header = new Header;
 
         $this->method = $this->request->method();
         $this->path = $this->request->path();
@@ -104,9 +114,9 @@ class Router {
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
                 $html = require ROOT . DS . 'app' . DS . 'Views' . DS . 'Tenaga' . DS . '404.php';
-                $this->response->setContent($html);
-                $this->response->setStatusCode(404);
-                echo $this->response->getContent();
+                $this->response->setResponse($html);
+                $this->header->setStatusCode(404);
+                echo $this->response->getResponse();
                 break;
             case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
                 $this->response->setContent('405 - Method not allowed');

@@ -18,7 +18,8 @@
         "twig/twig": "^3.0",
         "illuminate/database": "^7.6",
         "vlucas/phpdotenv": "^4.1",
-        "tenaga/http": "dev-master"
+        "tenaga/http": "^1.0",
+        "symfony/console": "^5.1"
     },
     "autoload": {
         "psr-4": {

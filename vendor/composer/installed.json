@@ -744,27 +744,30 @@
     },
     {
         "name": "symfony/console",
-        "version": "v5.0.7",
-        "version_normalized": "5.0.7.0",
+        "version": "v5.1.2",
+        "version_normalized": "5.1.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/console.git",
-            "reference": "5fa1caadc8cdaa17bcfb25219f3b53fe294a9935"
+            "reference": "34ac555a3627e324b660e318daa07572e1140123"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/console/zipball/5fa1caadc8cdaa17bcfb25219f3b53fe294a9935",
-            "reference": "5fa1caadc8cdaa17bcfb25219f3b53fe294a9935",
+            "url": "https://api.github.com/repos/symfony/console/zipball/34ac555a3627e324b660e318daa07572e1140123",
+            "reference": "34ac555a3627e324b660e318daa07572e1140123",
             "shasum": ""
         },
         "require": {
-            "php": "^7.2.5",
+            "php": ">=7.2.5",
             "symfony/polyfill-mbstring": "~1.0",
             "symfony/polyfill-php73": "^1.8",
-            "symfony/service-contracts": "^1.1|^2"
+            "symfony/polyfill-php80": "^1.15",
+            "symfony/service-contracts": "^1.1|^2",
+            "symfony/string": "^5.1"
         },
         "conflict": {
             "symfony/dependency-injection": "<4.4",
+            "symfony/dotenv": "<5.1",
             "symfony/event-dispatcher": "<4.4",
             "symfony/lock": "<4.4",
             "symfony/process": "<4.4"
@@ -787,11 +790,11 @@
             "symfony/lock": "",
             "symfony/process": ""
         },
-        "time": "2020-03-30T11:42:42+00:00",
+        "time": "2020-06-15T12:59:21+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "5.0-dev"
+                "dev-master": "5.1-dev"
             }
         },
         "installation-source": "dist",
@@ -878,6 +881,141 @@
             "ctype",
             "polyfill",
             "portable"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-intl-grapheme",
+        "version": "v1.17.1",
+        "version_normalized": "1.17.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
+            "reference": "6e4dbcf5e81eba86e36731f94fe56b1726835846"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/6e4dbcf5e81eba86e36731f94fe56b1726835846",
+            "reference": "6e4dbcf5e81eba86e36731f94fe56b1726835846",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-intl": "For best performance"
+        },
+        "time": "2020-06-06T08:46:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.17-dev"
+            },
+            "thanks": {
+                "name": "symfony/polyfill",
+                "url": "https://github.com/symfony/polyfill"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for intl's grapheme_* functions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "grapheme",
+            "intl",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-intl-normalizer",
+        "version": "v1.17.1",
+        "version_normalized": "1.17.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
+            "reference": "40309d1700e8f72447bb9e7b54af756eeea35620"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/40309d1700e8f72447bb9e7b54af756eeea35620",
+            "reference": "40309d1700e8f72447bb9e7b54af756eeea35620",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "suggest": {
+            "ext-intl": "For best performance"
+        },
+        "time": "2020-06-14T14:40:37+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.17-dev"
+            },
+            "thanks": {
+                "name": "symfony/polyfill",
+                "url": "https://github.com/symfony/polyfill"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ],
+            "classmap": [
+                "Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill for intl's Normalizer class and related functions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "intl",
+            "normalizer",
+            "polyfill",
+            "portable",
+            "shim"
         ]
     },
     {
@@ -1002,6 +1140,74 @@
         ]
     },
     {
+        "name": "symfony/polyfill-php80",
+        "version": "v1.17.1",
+        "version_normalized": "1.17.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php80.git",
+            "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4a5b6bba3259902e386eb80dd1956181ee90b5b2",
+            "reference": "4a5b6bba3259902e386eb80dd1956181ee90b5b2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0.8"
+        },
+        "time": "2020-06-06T08:46:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.17-dev"
+            },
+            "thanks": {
+                "name": "symfony/polyfill",
+                "url": "https://github.com/symfony/polyfill"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Php80\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ],
+            "classmap": [
+                "Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ion Bazan",
+                "email": "ion.bazan@gmail.com"
+            },
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill backporting some PHP 8.0+ features to lower PHP versions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
         "name": "symfony/service-contracts",
         "version": "v2.0.1",
         "version_normalized": "2.0.1.0",
@@ -1059,6 +1265,79 @@
             "interfaces",
             "interoperability",
             "standards"
+        ]
+    },
+    {
+        "name": "symfony/string",
+        "version": "v5.1.2",
+        "version_normalized": "5.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/string.git",
+            "reference": "ac70459db781108db7c6d8981dd31ce0e29e3298"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/string/zipball/ac70459db781108db7c6d8981dd31ce0e29e3298",
+            "reference": "ac70459db781108db7c6d8981dd31ce0e29e3298",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.2.5",
+            "symfony/polyfill-ctype": "~1.8",
+            "symfony/polyfill-intl-grapheme": "~1.0",
+            "symfony/polyfill-intl-normalizer": "~1.0",
+            "symfony/polyfill-mbstring": "~1.0",
+            "symfony/polyfill-php80": "~1.15"
+        },
+        "require-dev": {
+            "symfony/error-handler": "^4.4|^5.0",
+            "symfony/http-client": "^4.4|^5.0",
+            "symfony/translation-contracts": "^1.1|^2",
+            "symfony/var-exporter": "^4.4|^5.0"
+        },
+        "time": "2020-06-11T12:16:36+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\String\\": ""
+            },
+            "files": [
+                "Resources/functions.php"
+            ],
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony String component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "grapheme",
+            "i18n",
+            "string",
+            "unicode",
+            "utf-8",
+            "utf8"
         ]
     },
     {
@@ -1201,22 +1480,22 @@
     },
     {
         "name": "tenaga/http",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "v1.1",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/chimemoo/TenagaHttp.git",
-            "reference": "627c074f14ba3ea27994613f8e2c2403cdeb68b5"
+            "reference": "ac72e49cf943b5926345df85f51952bcc62abd52"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/chimemoo/TenagaHttp/zipball/627c074f14ba3ea27994613f8e2c2403cdeb68b5",
-            "reference": "627c074f14ba3ea27994613f8e2c2403cdeb68b5",
+            "url": "https://api.github.com/repos/chimemoo/TenagaHttp/zipball/ac72e49cf943b5926345df85f51952bcc62abd52",
+            "reference": "ac72e49cf943b5926345df85f51952bcc62abd52",
             "shasum": ""
         },
-        "time": "2020-04-23T06:46:46+00:00",
+        "time": "2020-04-24T09:34:30+00:00",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "Tenaga\\Http\\": "src/"

@@ -11,13 +11,11 @@ class Welcome extends Handler {
     }
 
     public function index(){
-        $data = $this->cookie->build('aaaa','aaaa');
         $data = [
             'name' => $this->request->get('name'),
-            'user' => WelcomeModel::all()
+            'user' => WelcomeModel::where('name','christmemory')->get()
         ];
         return $this->view->render('Hello',$data);
-        // $template->render($data);
     }
 
 }
